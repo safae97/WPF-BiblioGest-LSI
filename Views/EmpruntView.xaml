@@ -11,82 +11,87 @@
         <Grid Margin="15">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*" MinHeight="300"/>
             </Grid.RowDefinitions>
 
-            <!-- Top Panel: Form Section with Curved Design -->
-            <Border Grid.Row="0" Background="#8B4513" CornerRadius="15" Padding="20" Margin="0,0,0,15">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-
-                    <!-- Header with Icon-like Design -->
-                    <Border Grid.Row="0" Background="#FFFFFF" CornerRadius="25" Padding="15,10" Margin="0,0,0,20" HorizontalAlignment="Center">
-                        <TextBlock Text="📚 Gestion des Emprunts" FontSize="22" FontWeight="Bold" Foreground="#8B4513" TextAlignment="Center"/>
+            <!-- Header Section with Icon -->
+            <Border Grid.Row="0" Background="#8B4513" CornerRadius="20" Padding="20" Margin="0,0,0,15">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Border Background="#FFFFFF" CornerRadius="50" Width="60" Height="60" Margin="0,0,15,0">
+                        <TextBlock Text="📚" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
+                    <TextBlock Text="Gestion des Emprunts" FontSize="24" FontWeight="Bold" Foreground="#FFFFFF" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Border>
 
-                    <!-- Form Fields in Card-like Layout -->
-                    <Grid Grid.Row="1" Margin="0,0,0,15">
+            <!-- Form Section -->
+            <Border Grid.Row="1" Background="#F5F5F5" CornerRadius="15" Padding="20" Margin="0,0,0,15">
+                <StackPanel>
+                    <!-- Form Fields in a three-column grid -->
+                    <Grid Margin="0,0,0,20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <!-- Left Column -->
-                        <StackPanel Grid.Column="0" Margin="0,0,10,0">
-                            <!-- Book Selection Card -->
-                            <Border Background="#FFFFFF" CornerRadius="8" Padding="15" Margin="0,0,0,10">
-                                <StackPanel>
-                                    <TextBlock Text="📖 Livre (ISBN)" FontWeight="SemiBold" Foreground="#8B4513" Margin="0,0,0,8"/>
-                                    <ComboBox ItemsSource="{Binding Livres}" DisplayMemberPath="ISBN" SelectedValuePath="ISBN" 
-                                             SelectedValue="{Binding NewEmprunt.ISBN}" 
-                                             Background="#F5F5F5" Foreground="#8B4513" Padding="8" BorderBrush="#8B4513" BorderThickness="1"/>
-                                </StackPanel>
-                            </Border>
+                        <!-- Row 1 -->
+                        <Border Grid.Row="0" Grid.Column="0" Background="#FFFFFF" CornerRadius="10" Padding="15" Margin="5">
+                            <StackPanel>
+                                <TextBlock Text="📖 Livre (ISBN)" FontWeight="SemiBold" Foreground="#8B4513" Margin="0,0,0,8"/>
+                                <ComboBox ItemsSource="{Binding Livres}" DisplayMemberPath="ISBN" SelectedValuePath="ISBN" 
+                                         SelectedValue="{Binding NewEmprunt.ISBN}" 
+                                         Background="#F9F9F9" Foreground="#8B4513" Padding="10" BorderBrush="#8B4513" BorderThickness="1"/>
+                            </StackPanel>
+                        </Border>
 
-                            <!-- Member Selection Card -->
-                            <Border Background="#FFFFFF" CornerRadius="8" Padding="15">
-                                <StackPanel>
-                                    <TextBlock Text="👤 Adhérent" FontWeight="SemiBold" Foreground="#8B4513" Margin="0,0,0,8"/>
-                                    <ComboBox ItemsSource="{Binding Adherents}" DisplayMemberPath="Nom" SelectedValuePath="Id" 
-                                             SelectedValue="{Binding NewEmprunt.AdherentId}" 
-                                             Background="#F5F5F5" Foreground="#8B4513" Padding="8" BorderBrush="#8B4513" BorderThickness="1"/>
-                                </StackPanel>
-                            </Border>
-                        </StackPanel>
+                        <Border Grid.Row="0" Grid.Column="1" Background="#FFFFFF" CornerRadius="10" Padding="15" Margin="5">
+                            <StackPanel>
+                                <TextBlock Text="👤 Adhérent" FontWeight="SemiBold" Foreground="#8B4513" Margin="0,0,0,8"/>
+                                <ComboBox ItemsSource="{Binding Adherents}" DisplayMemberPath="Nom" SelectedValuePath="Id" 
+                                         SelectedValue="{Binding NewEmprunt.AdherentId}" 
+                                         Background="#F9F9F9" Foreground="#8B4513" Padding="10" BorderBrush="#8B4513" BorderThickness="1"/>
+                            </StackPanel>
+                        </Border>
 
-                        <!-- Right Column -->
-                        <StackPanel Grid.Column="1" Margin="10,0,0,0">
-                            <!-- Borrow Date Card -->
-                            <Border Background="#FFFFFF" CornerRadius="8" Padding="15" Margin="0,0,0,10">
-                                <StackPanel>
-                                    <TextBlock Text="📅 Date Emprunt" FontWeight="SemiBold" Foreground="#8B4513" Margin="0,0,0,8"/>
-                                    <DatePicker SelectedDate="{Binding NewEmprunt.DateEmprunt}" 
-                                               Background="#F5F5F5" Foreground="#8B4513" Padding="8" BorderBrush="#8B4513" BorderThickness="1"/>
-                                </StackPanel>
-                            </Border>
+                        <Border Grid.Row="0" Grid.Column="2" Background="#FFFFFF" CornerRadius="10" Padding="15" Margin="5">
+                            <StackPanel>
+                                <TextBlock Text="📅 Date Emprunt" FontWeight="SemiBold" Foreground="#8B4513" Margin="0,0,0,8"/>
+                                <DatePicker SelectedDate="{Binding NewEmprunt.DateEmprunt}" 
+                                           Background="#F9F9F9" Foreground="#8B4513" Padding="10" BorderBrush="#8B4513" BorderThickness="1"/>
+                            </StackPanel>
+                        </Border>
 
-                            <!-- Return Date Card -->
-                            <Border Background="#FFFFFF" CornerRadius="8" Padding="15">
-                                <StackPanel>
-                                    <TextBlock Text="🔄 Date Retour Prévu" FontWeight="SemiBold" Foreground="#8B4513" Margin="0,0,0,8"/>
-                                    <DatePicker SelectedDate="{Binding NewEmprunt.DateRetourPrevu}" 
-                                               Background="#F5F5F5" Foreground="#8B4513" Padding="8" BorderBrush="#8B4513" BorderThickness="1"/>
-                                </StackPanel>
-                            </Border>
-                        </StackPanel>
+                        <!-- Row 2 -->
+                        <Border Grid.Row="1" Grid.Column="0" Background="#FFFFFF" CornerRadius="10" Padding="15" Margin="5">
+                            <StackPanel>
+                                <TextBlock Text="🔄 Date Retour Prévu" FontWeight="SemiBold" Foreground="#8B4513" Margin="0,0,0,8"/>
+                                <DatePicker SelectedDate="{Binding NewEmprunt.DateRetourPrevu}" 
+                                           Background="#F9F9F9" Foreground="#8B4513" Padding="10" BorderBrush="#8B4513" BorderThickness="1"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Grid.Row="1" Grid.Column="1" Background="#FFFFFF" CornerRadius="10" Padding="15" Margin="5">
+                            <StackPanel>
+                                <TextBlock Text="✅ Date Retour Effectif" FontWeight="SemiBold" Foreground="#8B4513" Margin="0,0,0,8"/>
+                                <DatePicker SelectedDate="{Binding NewEmprunt.DateRetourEffectif}" 
+                                           Background="#F9F9F9" Foreground="#8B4513" Padding="10" BorderBrush="#8B4513" BorderThickness="1"/>
+                            </StackPanel>
+                        </Border>
                     </Grid>
 
-                    <!-- Action Buttons with Modern Design -->
-                    <Border Grid.Row="2" Background="#FFFFFF" CornerRadius="12" Padding="20,15">
+                    <!-- Action Buttons -->
+                    <Border Background="#8B4513" CornerRadius="12" Padding="20">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button Content="✅ Enregistrer" Command="{Binding AddEmpruntCommand}" 
-                                    Width="140" Height="40" Margin="10,0" 
-                                    Background="#8B4513" Foreground="#FFFFFF" FontWeight="Bold" 
-                                    BorderThickness="0" FontSize="14">
+                            <Button Content="➕ Ajouter" Command="{Binding AddEmpruntCommand}" 
+                                    Width="120" Height="40" Margin="8,0" 
+                                    Background="#FFFFFF" Foreground="#8B4513" FontWeight="Bold" 
+                                    BorderThickness="0" FontSize="13">
                                 <Button.Template>
                                     <ControlTemplate TargetType="Button">
                                         <Border Background="{TemplateBinding Background}" CornerRadius="20" Padding="10,5">
@@ -95,16 +100,30 @@
                                     </ControlTemplate>
                                 </Button.Template>
                             </Button>
-                            <Button Content="📤 Retourner" Command="{Binding ReturnEmpruntCommand}" 
-                                    Width="140" Height="40" Margin="10,0" 
+
+                            <Button Content="✏️ Modifier" Command="{Binding UpdateEmpruntCommand}" 
+                                    Width="120" Height="40" Margin="8,0" 
                                     Background="#FFFFFF" Foreground="#8B4513" FontWeight="Bold" 
-                                    BorderBrush="#8B4513" BorderThickness="2" FontSize="14">
+                                    BorderThickness="0" FontSize="13">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="20" Padding="10,5">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+
+                            <Button Content="📤 Retourner" Command="{Binding ReturnEmpruntCommand}" 
+                                    Width="120" Height="40" Margin="8,0" 
+                                    Background="#8B4513" Foreground="#FFFFFF" FontWeight="Bold" 
+                                    BorderBrush="#FFFFFF" BorderThickness="2" FontSize="13">
                                 <Button.Template>
                                     <ControlTemplate TargetType="Button">
                                         <Border Background="{TemplateBinding Background}" 
-                                               BorderBrush="{TemplateBinding BorderBrush}" 
-                                               BorderThickness="{TemplateBinding BorderThickness}" 
-                                               CornerRadius="20" Padding="10,5">
+                                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                                CornerRadius="20" Padding="10,5">
                                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                         </Border>
                                     </ControlTemplate>
@@ -112,11 +131,11 @@
                             </Button>
                         </StackPanel>
                     </Border>
-                </Grid>
+                </StackPanel>
             </Border>
 
-            <!-- Bottom Panel: Enhanced DataGrid -->
-            <Border Grid.Row="1" Background="#F5F5F5" CornerRadius="15" Padding="15">
+            <!-- DataGrid Section -->
+            <Border Grid.Row="2" Background="#F5F5F5" CornerRadius="15" Padding="15">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -124,19 +143,22 @@
                     </Grid.RowDefinitions>
 
                     <!-- DataGrid Header -->
-                    <Border Grid.Row="0" Background="#8B4513" CornerRadius="8" Padding="15,10" Margin="0,0,0,10">
-                        <TextBlock Text="📋 Liste des Emprunts Actifs" FontSize="16" FontWeight="Bold" 
-                                  Foreground="#FFFFFF" HorizontalAlignment="Center"/>
+                    <Border Grid.Row="0" Background="#8B4513" CornerRadius="10" Padding="15,10" Margin="0,0,0,10">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <TextBlock Text="📋" FontSize="18" Foreground="#FFFFFF" Margin="0,0,10,0"/>
+                            <TextBlock Text="Liste des Emprunts Actifs" FontSize="16" FontWeight="Bold" Foreground="#FFFFFF"/>
+                        </StackPanel>
                     </Border>
 
                     <!-- Enhanced DataGrid -->
                     <DataGrid Grid.Row="1" ItemsSource="{Binding Emprunts}" SelectedItem="{Binding SelectedEmprunt}" 
-                             AutoGenerateColumns="False" Background="#FFFFFF" 
-                             RowBackground="#FFFFFF" AlternatingRowBackground="#F9F9F9" 
-                             BorderBrush="#8B4513" BorderThickness="2"
-                             GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#E0E0E0"
-                             HeadersVisibility="Column" CanUserReorderColumns="False"
-                             MaxHeight="400">
+                              AutoGenerateColumns="False" Background="#FFFFFF" 
+                              RowBackground="#FFFFFF" AlternatingRowBackground="#F9F9F9" 
+                              BorderBrush="#8B4513" BorderThickness="2"
+                              GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#E0E0E0"
+                              HeadersVisibility="Column" CanUserReorderColumns="False"
+                              HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                              CanUserSortColumns="True" CanUserResizeColumns="True">
                         <DataGrid.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <VirtualizingStackPanel />
@@ -150,13 +172,14 @@
                                 <Setter Property="Padding" Value="12,8"/>
                                 <Setter Property="BorderBrush" Value="#FFFFFF"/>
                                 <Setter Property="BorderThickness" Value="0,0,1,0"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
                             </Style>
                         </DataGrid.ColumnHeaderStyle>
-
                         <DataGrid.RowStyle>
                             <Style TargetType="DataGridRow">
                                 <Setter Property="Padding" Value="5"/>
                                 <Setter Property="Margin" Value="0,1"/>
+                                <Setter Property="MinHeight" Value="35"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Background" Value="#FFF8DC"/>
@@ -168,49 +191,54 @@
                                 </Style.Triggers>
                             </Style>
                         </DataGrid.RowStyle>
-
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="📚 ISBN" Binding="{Binding ISBN}" Width="*" 
+                            <DataGridTextColumn Header="📚 ISBN" Binding="{Binding ISBN}" Width="Auto" MinWidth="100"
                                                Foreground="#8B4513" FontWeight="SemiBold">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="Padding" Value="8,5"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="TextWrapping" Value="Wrap"/>
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-
-                            <DataGridTextColumn Header="👤 Adhérent ID" Binding="{Binding AdherentId}" Width="*" 
+                            <DataGridTextColumn Header="👤 Adhérent ID" Binding="{Binding AdherentId}" Width="Auto" MinWidth="100"
                                                Foreground="#8B4513" FontWeight="SemiBold">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="Padding" Value="8,5"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="TextAlignment" Value="Center"/>
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-
-                            <DataGridTextColumn Header="📅 Date Emprunt" Binding="{Binding DateEmprunt}" Width="*" 
+                            <DataGridTextColumn Header="📅 Date Emprunt" Binding="{Binding DateEmprunt}" Width="Auto" MinWidth="110"
                                                Foreground="#8B4513" FontWeight="SemiBold">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="Padding" Value="8,5"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="TextAlignment" Value="Center"/>
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-
-                            <DataGridTextColumn Header="🔄 Retour Prévu" Binding="{Binding DateRetourPrevu}" Width="*" 
+                            <DataGridTextColumn Header="🔄 Retour Prévu" Binding="{Binding DateRetourPrevu}" Width="Auto" MinWidth="110"
                                                Foreground="#8B4513" FontWeight="SemiBold">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="Padding" Value="8,5"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="TextAlignment" Value="Center"/>
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-
-                            <DataGridTextColumn Header="✅ Retour Effectif" Binding="{Binding DateRetourEffectif}" Width="*" 
+                            <DataGridTextColumn Header="✅ Retour Effectif" Binding="{Binding DateRetourEffectif}" Width="Auto" MinWidth="110"
                                                Foreground="#8B4513" FontWeight="SemiBold">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="Padding" Value="8,5"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="TextAlignment" Value="Center"/>
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>

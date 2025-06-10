@@ -12,7 +12,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="*" MinHeight="300"/>
             </Grid.RowDefinitions>
 
             <!-- Header Section with Icon -->
@@ -140,7 +140,7 @@
                 </StackPanel>
             </Border>
 
-            <!-- DataGrid Section -->
+            <!-- DataGrid Section - Now takes full available space -->
             <Border Grid.Row="2" Background="#F5F5F5" CornerRadius="15" Padding="15">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -156,14 +156,15 @@
                         </StackPanel>
                     </Border>
 
-                    <!-- Enhanced DataGrid -->
+                    <!-- Enhanced DataGrid - Removed MaxHeight constraint -->
                     <DataGrid Grid.Row="1" ItemsSource="{Binding Adherents}" SelectedItem="{Binding SelectedAdherent}" 
                               AutoGenerateColumns="False" Background="#FFFFFF" 
                               RowBackground="#FFFFFF" AlternatingRowBackground="#F9F9F9" 
                               BorderBrush="#8B4513" BorderThickness="2"
                               GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#E0E0E0"
                               HeadersVisibility="Column" CanUserReorderColumns="False"
-                              MaxHeight="350">
+                              HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                              CanUserSortColumns="True" CanUserResizeColumns="True">
                         <DataGrid.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <VirtualizingStackPanel />
@@ -177,12 +178,14 @@
                                 <Setter Property="Padding" Value="12,8"/>
                                 <Setter Property="BorderBrush" Value="#FFFFFF"/>
                                 <Setter Property="BorderThickness" Value="0,0,1,0"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
                             </Style>
                         </DataGrid.ColumnHeaderStyle>
                         <DataGrid.RowStyle>
                             <Style TargetType="DataGridRow">
                                 <Setter Property="Padding" Value="5"/>
                                 <Setter Property="Margin" Value="0,1"/>
+                                <Setter Property="MinHeight" Value="35"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Background" Value="#FFF8DC"/>
@@ -195,51 +198,60 @@
                             </Style>
                         </DataGrid.RowStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="👤 Nom" Binding="{Binding Nom}" Width="*" 
+                            <DataGridTextColumn Header="👤 Nom" Binding="{Binding Nom}" Width="1.2*" MinWidth="100"
                                                Foreground="#8B4513" FontWeight="SemiBold">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="Padding" Value="8,5"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn Header="👤 Prénom" Binding="{Binding Prenom}" Width="*" 
+                            <DataGridTextColumn Header="👤 Prénom" Binding="{Binding Prenom}" Width="1.2*" MinWidth="100"
                                                Foreground="#8B4513" FontWeight="SemiBold">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="Padding" Value="8,5"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn Header="🏠 Adresse" Binding="{Binding Adresse}" Width="*" 
+                            <DataGridTextColumn Header="🏠 Adresse" Binding="{Binding Adresse}" Width="2*" MinWidth="150"
                                                Foreground="#8B4513" FontWeight="SemiBold">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="Padding" Value="8,5"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="TextWrapping" Value="Wrap"/>
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn Header="📧 Email" Binding="{Binding Email}" Width="*" 
+                            <DataGridTextColumn Header="📧 Email" Binding="{Binding Email}" Width="1.8*" MinWidth="180"
                                                Foreground="#8B4513" FontWeight="SemiBold">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="Padding" Value="8,5"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn Header="📞 Téléphone" Binding="{Binding Telephone}" Width="*" 
+                            <DataGridTextColumn Header="📞 Téléphone" Binding="{Binding Telephone}" Width="1.2*" MinWidth="120"
                                                Foreground="#8B4513" FontWeight="SemiBold">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="Padding" Value="8,5"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="TextAlignment" Value="Center"/>
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn Header="📅 Inscription" Binding="{Binding DateInscription}" Width="*" 
+                            <DataGridTextColumn Header="📅 Inscription" Binding="{Binding DateInscription}" Width="1.2*" MinWidth="110"
                                                Foreground="#8B4513" FontWeight="SemiBold">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="Padding" Value="8,5"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="TextAlignment" Value="Center"/>
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
