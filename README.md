@@ -1,5 +1,4 @@
 
-````markdown
 #  🌟  BiblioGest-LSI – Your Modern Library Management Solution
 
 Welcome to **BiblioGest-LSI**, a sleek and powerful library management application built using C# and WPF. Crafted as a student project, this application streamlines book, member, and loan management with an intuitive interface and robust functionality.
@@ -28,7 +27,7 @@ Follow these steps to set up and run BiblioGest-LSI on your local machine.
 ```bash
 git clone https://github.com/safae97/WPF-BiblioGest-LSI.git
 cd WPF-BiblioGest-LSI
-````
+
 
 ---
 
