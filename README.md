@@ -27,7 +27,7 @@ Follow these steps to set up and run BiblioGest-LSI on your local machine.
 ```bash
 git clone https://github.com/safae97/WPF-BiblioGest-LSI.git
 cd WPF-BiblioGest-LSI
-
+```
 
 ### 🗄️ Configure the Database
 
