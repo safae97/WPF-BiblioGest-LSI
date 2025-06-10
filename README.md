@@ -29,8 +29,6 @@ git clone https://github.com/safae97/WPF-BiblioGest-LSI.git
 cd WPF-BiblioGest-LSI
 
 
----
-
 ### 🗄️ Configure the Database
 
 Open `Data/AppDbContext.cs` in Visual Studio and update the PostgreSQL connection string with your credentials:
