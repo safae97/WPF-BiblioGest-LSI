@@ -20,7 +20,7 @@ Follow these steps to set up and run BiblioGest-LSI on your local machine.
 - PostgreSQL (version 12 or later)
 - Git
 
-### Setup Instructions
+### Setup Instructions to follow
 
 #### Clone the Repository
 
