@@ -1,0 +1,28 @@
+﻿<Window x:Class="BiblioGest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BiblioGest"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Menu -->
+        <StackPanel Grid.Column="0" Background="#EEE">
+            <Button Content="Livres" Command="{Binding ShowLivreViewCommand}" Margin="5"/>
+            <Button Content="Adhérents" Command="{Binding ShowAdherentViewCommand}" Margin="5"/>
+            <Button Content="Emprunts" Command="{Binding ShowEmpruntViewCommand}" Margin="5"/>
+            <Button Content="Dashboard Admin" Command="{Binding ShowAdminDashboardCommand}" Margin="5"/>
+        </StackPanel>
+
+        <!-- Vue dynamique -->
+        <ContentControl Grid.Column="1" Content="{Binding CurrentView}" />
+    </Grid>
+
+</Window>

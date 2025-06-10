@@ -1,0 +1,273 @@
+﻿<UserControl x:Class="BiblioGest.Views.LivreView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BiblioGest.Views"
+             mc:Ignorable="d"
+             d:DesignHeight="600" d:DesignWidth="800"
+             Background="#FFFFFF">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <Grid Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header Section with Book Icon -->
+            <Border Grid.Row="0" Background="#8B4513" CornerRadius="20" Padding="20" Margin="0,0,0,15">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Border Background="#FFFFFF" CornerRadius="50" Width="60" Height="60" Margin="0,0,15,0">
+                        <TextBlock Text="📚" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <TextBlock Text="Gestion des Livres" FontSize="24" FontWeight="Bold" Foreground="#FFFFFF" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Form Section with Grid Layout -->
+            <Border Grid.Row="1" Background="#F5F5F5" CornerRadius="15" Padding="20" Margin="0,0,0,15">
+                <StackPanel>
+                    <!-- Form Fields in a more organized grid -->
+                    <Grid Margin="0,0,0,20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Row 1 -->
+                        <Border Grid.Row="0" Grid.Column="0" Background="#FFFFFF" CornerRadius="10" Padding="15" Margin="5">
+                            <StackPanel>
+                                <TextBlock Text="📖 ISBN" FontWeight="SemiBold" Foreground="#8B4513" Margin="0,0,0,8"/>
+                                <TextBox Text="{Binding NewLivre.ISBN}" Background="#F9F9F9" Foreground="#8B4513" 
+                                        Padding="10" BorderBrush="#8B4513" BorderThickness="1"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Grid.Row="0" Grid.Column="1" Background="#FFFFFF" CornerRadius="10" Padding="15" Margin="5">
+                            <StackPanel>
+                                <TextBlock Text="📝 Titre" FontWeight="SemiBold" Foreground="#8B4513" Margin="0,0,0,8"/>
+                                <TextBox Text="{Binding NewLivre.Titre}" Background="#F9F9F9" Foreground="#8B4513" 
+                                        Padding="10" BorderBrush="#8B4513" BorderThickness="1"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Grid.Row="0" Grid.Column="2" Background="#FFFFFF" CornerRadius="10" Padding="15" Margin="5">
+                            <StackPanel>
+                                <TextBlock Text="✍️ Auteur" FontWeight="SemiBold" Foreground="#8B4513" Margin="0,0,0,8"/>
+                                <TextBox Text="{Binding NewLivre.Auteur}" Background="#F9F9F9" Foreground="#8B4513" 
+                                        Padding="10" BorderBrush="#8B4513" BorderThickness="1"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Row 2 -->
+                        <Border Grid.Row="1" Grid.Column="0" Background="#FFFFFF" CornerRadius="10" Padding="15" Margin="5">
+                            <StackPanel>
+                                <TextBlock Text="🏢 Éditeur" FontWeight="SemiBold" Foreground="#8B4513" Margin="0,0,0,8"/>
+                                <TextBox Text="{Binding NewLivre.Editeur}" Background="#F9F9F9" Foreground="#8B4513" 
+                                        Padding="10" BorderBrush="#8B4513" BorderThickness="1"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Grid.Row="1" Grid.Column="1" Background="#FFFFFF" CornerRadius="10" Padding="15" Margin="5">
+                            <StackPanel>
+                                <TextBlock Text="📅 Année" FontWeight="SemiBold" Foreground="#8B4513" Margin="0,0,0,8"/>
+                                <TextBox Text="{Binding NewLivre.AnneePublication}" Background="#F9F9F9" Foreground="#8B4513" 
+                                        Padding="10" BorderBrush="#8B4513" BorderThickness="1"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Grid.Row="1" Grid.Column="2" Background="#FFFFFF" CornerRadius="10" Padding="15" Margin="5">
+                            <StackPanel>
+                                <TextBlock Text="🏷️ Catégorie" FontWeight="SemiBold" Foreground="#8B4513" Margin="0,0,0,8"/>
+                                <TextBox Text="{Binding NewLivre.Categorie}" Background="#F9F9F9" Foreground="#8B4513" 
+                                        Padding="10" BorderBrush="#8B4513" BorderThickness="1"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Row 3 - Stock field centered -->
+                        <Border Grid.Row="2" Grid.Column="1" Background="#FFFFFF" CornerRadius="10" Padding="15" Margin="5">
+                            <StackPanel>
+                                <TextBlock Text="📦 Stock" FontWeight="SemiBold" Foreground="#8B4513" Margin="0,0,0,8"/>
+                                <TextBox Text="{Binding NewLivre.NombreExemplaires}" Background="#F9F9F9" Foreground="#8B4513" 
+                                        Padding="10" BorderBrush="#8B4513" BorderThickness="1"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+
+                    <!-- Action Buttons -->
+                    <Border Background="#8B4513" CornerRadius="12" Padding="20">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button Content="➕ Ajouter" Command="{Binding AddLivreCommand}" 
+                                    Width="120" Height="40" Margin="8,0" 
+                                    Background="#FFFFFF" Foreground="#8B4513" FontWeight="Bold" 
+                                    BorderThickness="0" FontSize="13">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="20" Padding="10,5">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+
+                            <Button Content="✏️ Modifier" Command="{Binding UpdateLivreCommand}" 
+                                    Width="120" Height="40" Margin="8,0" 
+                                    Background="#FFFFFF" Foreground="#8B4513" FontWeight="Bold" 
+                                    BorderThickness="0" FontSize="13">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="20" Padding="10,5">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+
+                            <Button Content="🗑️ Supprimer" Command="{Binding DeleteLivreCommand}" 
+                                    Width="120" Height="40" Margin="8,0" 
+                                    Background="#8B4513" Foreground="#FFFFFF" FontWeight="Bold" 
+                                    BorderBrush="#FFFFFF" BorderThickness="2" FontSize="13">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" 
+                                               BorderBrush="{TemplateBinding BorderBrush}" 
+                                               BorderThickness="{TemplateBinding BorderThickness}" 
+                                               CornerRadius="20" Padding="10,5">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Border>
+
+            <!-- DataGrid Section -->
+            <Border Grid.Row="2" Background="#F5F5F5" CornerRadius="15" Padding="15">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- DataGrid Header -->
+                    <Border Grid.Row="0" Background="#8B4513" CornerRadius="10" Padding="15,10" Margin="0,0,0,10">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <TextBlock Text="📋" FontSize="18" Foreground="#FFFFFF" Margin="0,0,10,0"/>
+                            <TextBlock Text="Bibliothèque - Catalogue des Livres" FontSize="16" FontWeight="Bold" 
+                                      Foreground="#FFFFFF"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Enhanced DataGrid -->
+                    <DataGrid Grid.Row="1" ItemsSource="{Binding Livres}" SelectedItem="{Binding SelectedLivre}" 
+                             AutoGenerateColumns="False" Background="#FFFFFF" 
+                             RowBackground="#FFFFFF" AlternatingRowBackground="#F9F9F9" 
+                             BorderBrush="#8B4513" BorderThickness="2"
+                             GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#E0E0E0"
+                             HeadersVisibility="Column" CanUserReorderColumns="False"
+                             MaxHeight="400">
+                        <DataGrid.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel />
+                            </ItemsPanelTemplate>
+                        </DataGrid.ItemsPanel>
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="#8B4513"/>
+                                <Setter Property="Foreground" Value="#FFFFFF"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="Padding" Value="12,8"/>
+                                <Setter Property="BorderBrush" Value="#FFFFFF"/>
+                                <Setter Property="BorderThickness" Value="0,0,1,0"/>
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="Padding" Value="5"/>
+                                <Setter Property="Margin" Value="0,1"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FFF8DC"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="#DEB887"/>
+                                        <Setter Property="Foreground" Value="#8B4513"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="📖 ISBN" Binding="{Binding ISBN}" Width="*" 
+                                               Foreground="#8B4513" FontWeight="SemiBold">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Padding" Value="8,5"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="📝 Titre" Binding="{Binding Titre}" Width="2*" 
+                                               Foreground="#8B4513" FontWeight="SemiBold">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Padding" Value="8,5"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="✍️ Auteur" Binding="{Binding Auteur}" Width="*" 
+                                               Foreground="#8B4513" FontWeight="SemiBold">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Padding" Value="8,5"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="🏢 Éditeur" Binding="{Binding Editeur}" Width="*" 
+                                               Foreground="#8B4513" FontWeight="SemiBold">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Padding" Value="8,5"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="📅 Année" Binding="{Binding AnneePublication}" Width="80" 
+                                               Foreground="#8B4513" FontWeight="SemiBold">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Padding" Value="8,5"/>
+                                        <Setter Property="TextAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="🏷️ Catégorie" Binding="{Binding Categorie}" Width="*" 
+                                               Foreground="#8B4513" FontWeight="SemiBold">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Padding" Value="8,5"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="📦 Stock" Binding="{Binding NombreExemplaires}" Width="70" 
+                                               Foreground="#8B4513" FontWeight="SemiBold">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Padding" Value="8,5"/>
+                                        <Setter Property="TextAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Border>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

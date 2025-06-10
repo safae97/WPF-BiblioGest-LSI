@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35828.75 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiblioGest", "BiblioGest.csproj", "{C32F7D45-EDE0-468E-BD5D-4D0DA97A756C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C32F7D45-EDE0-468E-BD5D-4D0DA97A756C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C32F7D45-EDE0-468E-BD5D-4D0DA97A756C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C32F7D45-EDE0-468E-BD5D-4D0DA97A756C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C32F7D45-EDE0-468E-BD5D-4D0DA97A756C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5602866C-21EC-4D9F-93AA-E0FF4F20B3D0}
+	EndGlobalSection
+EndGlobal
