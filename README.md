@@ -180,5 +180,3 @@ Update-Database
 ## 🙌 Acknowledgments
 
 A special thank you to **Prof. Hassan ZILI** for mentorship and guidance throughout the project.
-
-```
