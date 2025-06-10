@@ -93,18 +93,18 @@ Update-Database
 
 ### 📊 Admin Dashboard
 
-![Dashboard](Images\admindah1.png)
+![Dashboard](Images/admindah1.png)
 
 
-![Dashboard](Images\admindash2.png)
+![Dashboard](Images/admindash2.png)
 
 
 ### 📚 Book Management
 
-![Book Management](Images\book1.png)
+![Book Management](Images/book1.png)
 
 
-![Book Management](Images\book2.png)
+![Book Management](Images/book2.png)
 
 
 ### 👤 Member Management
