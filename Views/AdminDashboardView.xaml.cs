@@ -8,7 +8,7 @@ namespace BiblioGest.Views
         public AdminDashboardView()
         {
             InitializeComponent();
-            DataContext = new AdminDashboardViewModel(); // 🔥 très important
+            DataContext = new AdminDashboardViewModel(); // 🔥 très important pour la liaison de données
         }
     }
 }
