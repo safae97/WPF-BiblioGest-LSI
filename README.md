@@ -1,55 +1,54 @@
+#  🌟  BiblioGest-LSI – Votre Solution Moderne de Gestion de Bibliothèque
 
-#  🌟  BiblioGest-LSI – Your Modern Library Management Solution
+Bienvenue sur **BiblioGest-LSI**, une application élégante et puissante de gestion de bibliothèque développée avec C# et WPF. Conçue comme un projet étudiant, cette application simplifie la gestion des livres, des membres et des prêts grâce à une interface intuitive et des fonctionnalités robustes.
 
-Welcome to **BiblioGest-LSI**, a sleek and powerful library management application built using C# and WPF. Crafted as a student project, this application streamlines book, member, and loan management with an intuitive interface and robust functionality.
+## 👥 Équipe du Projet
 
-## 👥 Project Team
-
-- **Developers**: Oumaima Boughdad & Safae Hammouch  
+- **Développeurs**: Oumaima Boughdad & Safae Hammouch  
 - **Mentor**: Prof. Hassan ZILI
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Mise en Route
 
-Follow these steps to set up and run BiblioGest-LSI on your local machine.
+Suivez ces étapes pour configurer et exécuter BiblioGest-LSI sur votre machine locale.
 
-### Prerequisites
+### Prérequis
 
-- Visual Studio (2019 or later) with .NET Framework or .NET Core
-- PostgreSQL (version 12 or later)
+- Visual Studio (2019 ou ultérieur) avec .NET Framework ou .NET Core
+- PostgreSQL (version 12 ou ultérieure)
 - Git
 
-### Setup Instructions to follow
+### Instructions de Configuration à Suivre
 
-#### Clone the Repository
+#### Cloner le Dépôt
 
 ```bash
 git clone https://github.com/safae97/WPF-BiblioGest-LSI.git
 cd WPF-BiblioGest-LSI
 ```
 
-### 🗄️ Configure the Database
+### 🗄️ Configurer la Base de Données
 
-Open `Data/AppDbContext.cs` in Visual Studio and update the PostgreSQL connection string with your credentials:
+Ouvrez `Data/AppDbContext.cs` dans Visual Studio et mettez à jour la chaîne de connexion PostgreSQL avec vos identifiants:
 
 ```csharp
 options.UseNpgsql("Host=localhost;Port=5432;Database=name_of_database;Username=postgres;Password=your_password");
 ```
 
-> Replace `your_password` with your actual PostgreSQL password.
+> Remplacez `your_password` par votre mot de passe PostgreSQL réel.
 
 ---
 
-### 🧱  Apply Database Migrations
+### 🧱 Appliquer les Migrations de Base de Données
 
-Open **Package Manager Console** in Visual Studio:
+Ouvrez la **Console du Gestionnaire de Packages** dans Visual Studio:
 
 ```
-Tools > NuGet Package Manager > Package Manager Console
+Outils > Gestionnaire de Package NuGet > Console du Gestionnaire de Packages
 ```
 
-Then run:
+Puis exécutez:
 
 ```powershell
 Add-Migration InitialCreate
@@ -58,76 +57,74 @@ Update-Database
 
 ---
 
-### 🏃 Run the Application
+### 🏃 Exécuter l'Application
 
-1. Open `BiblioGest.sln` in Visual Studio.
-2. Press `F5` or click **Run** to launch the application.
+1. Ouvrez `BiblioGest.sln` dans Visual Studio.
+2. Appuyez sur `F5` ou cliquez sur **Exécuter** pour lancer l'application.
 
 ---
 
-##📁 Project Architecture
+## 📁 Architecture du Projet
 
 ```
 📦 BiblioGest
-├── 📁 Commands/         # Custom commands (e.g., RelayCommand)
-├── 📁 Data/             # Database context and migrations
-├── 📁 Models/           # Entities (Book, Member, Loan)
-├── 📁 ViewModels/       # Business logic and data binding
-├── 📁 Views/            # WPF user interfaces
+├── 📁 Commands/         # Commandes personnalisées (ex: RelayCommand)
+├── 📁 Data/             # Contexte de base de données et migrations
+├── 📁 Models/           # Entités (Livre, Membre, Prêt)
+├── 📁 ViewModels/       # Logique métier et liaison de données
+├── 📁 Views/            # Interfaces utilisateur WPF
 ```
 
 ---
 
-## ✅  Requirements Met
+## ✅ Exigences Satisfaites
 
-* 📚 Book Management (CRUD)
-* 👤 Member Management (CRUD + loan history)
-* 📅 Loan Management (create, return, overdue detection)
-* 📊 Dashboard with real-time statistics and visual charts
-
----
-
-## 📸 Screenshots
-
-
-
-### 📊 Admin Dashboard
-
-![Dashboard](Images/admindah1.png)
-
-
-![Dashboard](Images/admindash2.png)
-
-
-### 📚 Book Management
-
-![Book Management](Images/book1.png)
-
-
-![Book Management](Images/book2.png)
-
-
-### 👤 Member Management
-
-![Member Management](Images/clients1.png)
-
-
-![Member Management](Images/client2.png)
-
-
-### 📅 Loan Management
-
-![Loan Management](Images/loan1.png)
-
-
-![Loan Management](Images/loan2.png)
-
+* 📚 Gestion des Livres (CRUD)
+* 👤 Gestion des Membres (CRUD + historique des prêts)
+* 📅 Gestion des Prêts (création, retour, détection des retards)
+* 📊 Tableau de bord avec statistiques en temps réel et graphiques visuels
 
 ---
 
-## 🧪 Sample Test Data
+## 📸 Captures d'Écran
 
-### 📘 Book
+### 📊 Tableau de Bord Administrateur
+
+![Tableau de Bord](Images/admindah1.png)
+
+
+![Tableau de Bord](Images/admindash2.png)
+
+
+### 📚 Gestion des Livres
+
+![Gestion des Livres](Images/book1.png)
+
+
+![Gestion des Livres](Images/book2.png)
+
+
+### 👤 Gestion des Membres
+
+![Gestion des Membres](Images/clients1.png)
+
+
+![Gestion des Membres](Images/client2.png)
+
+
+### 📅 Gestion des Prêts
+
+![Gestion des Prêts](Images/loan1.png)
+
+
+![Gestion des Prêts](Images/loan2.png)
+
+
+---
+
+## 🧪 Exemples de Données de Test
+
+### 📘 Livre
 
 ```json
 {
@@ -141,7 +138,7 @@ Update-Database
 }
 ```
 
-### 👤 Member
+### 👤 Membre
 
 ```json
 {
@@ -153,7 +150,7 @@ Update-Database
 }
 ```
 
-### 📅 Loan
+### 📅 Prêt
 
 ```json
 {
@@ -166,17 +163,16 @@ Update-Database
 
 ---
 
+## 🔮 Améliorations Futures
 
-## 🔮 Future Enhancements
-
-* 📤 Export data to CSV/Excel
-* 🔐 Role-based access (admin/user)
-* 📱 Mobile app using .NET MAUI
-* 🔍 Advanced search/filtering
-* 📧 Email alerts for overdue books
+* 📤 Exportation des données vers CSV/Excel
+* 🔐 Accès basé sur les rôles (administrateur/utilisateur)
+* 📱 Application mobile utilisant .NET MAUI
+* 🔍 Recherche/filtrage avancé
+* 📧 Alertes par e-mail pour les livres en retard
 
 ---
 
-## 🙌 Acknowledgments
+## 🙌 Remerciements
 
-A special thank you to **Prof. Hassan ZILI** for mentorship and guidance throughout the project.
+Un remerciement spécial au **Prof. Hassan ZILI** pour son mentorat et ses conseils tout au long du projet.
