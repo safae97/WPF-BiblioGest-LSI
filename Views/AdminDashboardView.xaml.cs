@@ -4,6 +4,9 @@ using BiblioGest.ViewModels;
 
 namespace BiblioGest.Views
 {
+    /// <summary>
+    /// Vue pour le tableau de bord administrateur
+    /// </summary>
     public partial class AdminDashboardView : UserControl
     {
         public AdminDashboardView()
