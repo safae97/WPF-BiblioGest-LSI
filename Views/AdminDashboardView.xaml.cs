@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿// Vue du tableau de bord administrateur
+using System.Windows.Controls;
 using BiblioGest.ViewModels;
 
 namespace BiblioGest.Views
